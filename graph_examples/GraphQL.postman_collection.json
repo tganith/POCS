@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "e2bc6ace-ad6a-4d74-8df3-a238bc07e5b0",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AllEmployees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n allEmployee{\n   id\n   name \n   age \n   mobileNumber\n   role\n   department {\n          id\n          deptName\n          location\n   }\n }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/employeeservice/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"employeeservice",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EmpById",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n empById(id:100){\n   id\n   name \n   age \n   mobileNumber\n   role\n   department {\n          id\n          deptName\n          location\n   }\n }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/employeeservice/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"employeeservice",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeptById",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n deptById(id:100001){\n       id\n       deptName\n       location\n }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/employeeservice/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"employeeservice",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

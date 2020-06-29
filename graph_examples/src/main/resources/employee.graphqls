@@ -1,0 +1,25 @@
+schema {
+   query: Query
+}
+
+type Query {
+   allEmployee: [Employee]
+   empById(id: Long): Employee
+   deptById(id: Long): Department
+}
+
+type Employee {
+  id: Long
+  name: String
+  age: Int
+  mobileNumber: String
+  role: String
+  department: Department
+}
+
+type Department{
+  id: Long
+  deptName: String
+  location: String
+}
+
