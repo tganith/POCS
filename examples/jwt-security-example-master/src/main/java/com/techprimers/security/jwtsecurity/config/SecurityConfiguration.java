@@ -1,4 +1,4 @@
-package com.mypoc.swaggerexamples.swagger_examples.configuration;
+package com.techprimers.security.jwtsecurity.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
@@ -15,7 +15,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-           http.antMatcher("/swagger-ui.html").authorizeRequests().anyRequest().hasAnyRole("API");
+           http.antMatcher("/api/**").authorizeRequests().anyRequest().hasAnyRole("API");
            http.httpBasic();
     }
 
