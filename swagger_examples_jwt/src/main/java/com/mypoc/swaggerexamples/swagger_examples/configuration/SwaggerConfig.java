@@ -1,7 +1,11 @@
 package com.mypoc.swaggerexamples.swagger_examples.configuration;
 
+import com.mypoc.swaggerexamples.swagger_examples.beans.Employee;
+import com.mypoc.swaggerexamples.swagger_examples.controller.EmployeeController;
+import com.mypoc.swaggerexamples.swagger_examples.model.JwtUser;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -19,14 +23,18 @@ import java.util.List;
 
 @Configuration
 @EnableSwagger2
+@Profile("dev")
 public class SwaggerConfig {
 
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
+               // .tags(new Tag("Employee",""))
+             //   .ignoredParameterTypes(Employee.class, JwtUser.class)
                 .select().apis(RequestHandlerSelectors.basePackage("com.mypoc.swaggerexamples.swagger_examples.controller"))
                 .paths(PathSelectors.any()).build()
                 .useDefaultResponseMessages(false)
+                .enable(true)
                 .securitySchemes(Collections.singletonList(apiKey()))
                 .securityContexts(Collections.singletonList(securityContext()));
 

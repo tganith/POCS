@@ -1,8 +1,8 @@
 package com.mypoc.swaggerexamples.swagger_examples.controller;
 
 import com.mypoc.swaggerexamples.swagger_examples.beans.Employee;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.Authorization;
+import io.swagger.annotations.*;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,6 +13,7 @@ import java.util.List;
 
 @RequestMapping("/api/v1")
 @RestController
+@Api(tags = {"Employee"},description = "emp services</b><style>.models {display: none !important}</style>")
 public class EmployeeController {
 
     List<Employee> employeeList = new ArrayList<>();
